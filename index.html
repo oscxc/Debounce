@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数去抖效果演示</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #info{
+            text-align: center;
+            margin-top: 50px;
+            color: red;
+        }
+        #test{
+            position: absolute;
+            width: 600px;
+            height: 20px;
+            left: 50%;
+            top: 20%;
+            margin-left: -300px;
+        }
+    </style>
+</head>
+<body>
+<div id="info">F12 打开控制台，在文本框中输入字符查看输出</div>
+<input id="test" type="text">
+<script src="Debounce.js"></script>
+<script>
+    var debounce = new Debounce(400,function (args) {
+        console.log("回调执行");
+    });
+    document.getElementById("test").oninput = function () {
+        debounce.filter(arguments);
+    };
+</script>
+</body>
+</html>
